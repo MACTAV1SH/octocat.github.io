@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+<body>
+	
+	<div style="text-align:center;">
+	<h1>엘릭서 연성 손익분기점</h1>
+	<p><span style = color:red>★혼돌을 구매해서 연성시 정수값이 오르지않는 이상 대부분 손해이므로 그냥 분해를 권장합니다.★</p>
+	
+	<form>
+		<label>빛나는 지혜의 정수 가격 :</label>
+		<input type="text" id="price"><br><br>
+		<button type="button" onclick="calculate()">계산</button>
+	</form>
+
+	<div id="result-wrapper">
+		<p id="result"></p>
+	</div>
+	<div id="background-wrapper">
+		<img src="https://pbs.twimg.com/media/FFo94loakAA8oRu?format=jpg&name=900x900" alt="background image" width="20%" height="20%" opacity="0.3">
+	</div>
+	<p> 촉매 + 누르는골드 = 총 7000골드 소모(최댓값) // 혼돌 500골 기준 8660골드 소모 // 혼돌 1000골 기준 10330골드 소모 </p>
+
+
+
+
+	
+	<script>
+	function calculate() {
+		var a = parseInt(document.getElementById("price").value);
+		var result = document.getElementById("result");
+
+		result.innerHTML = "<p>엘릭서 6개 그냥 분해 시 <span style='color: " + (a*6*6*0.95 > 0 ? "blue" : "red") + ";'>" + parseInt(a*6*6*0.95) + "</span>골드 획득가능 (거래소 등록수수료 포함)</p>";
+		result.innerHTML += "<p>엘릭서 1개 기준 옵션4개고르고 + 5번째 옵션 안고른 상태 (5개 옵션이 전부 맘에안드는 잡옵일 경우)에서 분해하면 = <span style='color: " + (a*10*0.95-1400 > 0 ? "blue" : "red") + ";'>" + parseInt(a*10*0.95-1400) + "</span>골드만큼 손익 발생</p>";
+		result.innerHTML += "<p>엘릭서 1개 기준 첫 질서 3스택에서 남은연성비용 무료 뽑고 끝까지 연성 시= <span style='color: " + (a*25*0.95-3640 > 0 ? "blue" : "red") + ";'>" + parseInt(a*25*0.95-3640) + "</span>골드만큼 손익 발생</p>";
+		result.innerHTML += "<p>엘릭서 1개 기준 첫 질서 3스택에서 남은연성비용 무료 못 뽑을시 바로 분해하면 <span style='color: " + (a*13*0.95-2800 > 0 ? "blue" : "red") + ";'>" + parseInt(a*13*0.95-2800) + "</span>골드만큼 손익 발생</p>";
+		result.innerHTML += "<p>만약 남은연성비용 무료 못 뽑을시 바로분해하지 않고 끝까지연성할 경우 <span style='color: " + (a*25*0.95-7000 > 0 ? "blue" : "red") + ";'>" + parseInt(a*25*0.95-7000) + "</span>골드만큼 손익 발생</p>";
+	
+
+		for (var n=1; n<8; n++) {
+			result.innerHTML += "<p style='margin:0;'>기회 2회 소모 선택지 " + n + "번뽑을시 <span style='color: " + (a*25*0.95-7000+(350*n) > 0 ? "blue" : "red") + ";'>" + parseInt(a*25*0.95-7000+(350*n)) + "</span>골드 만큼 손익 발생</p>";
+			}
+
+
+		result.innerHTML += "<p><hr style='border: dashed 3px black;'></p>";
+		result.innerHTML += "<p>(혼돌 500에 구매 시) 옵션4개고르고 + 5번째 옵션 안고른 상태 (5개 옵션이 전부 맘에안드는 잡옵일 경우)에서 분해하면 = <span style='color: " + (a*10*0.95-1822 > 0 ? "blue" : "red") + ";'>" + parseInt(a*10*0.95-1822) + "</span>골드만큼 손익 발생</p>";
+		result.innerHTML += "<p>(혼돌 500에 구매 시) 엘릭서 1개 기준 첫 질서 3스택에서 남은연성비용 무료 뽑고 끝까지 연성 시= <span style='color: " + (a*25*0.95-5300 > 0 ? "blue" : "red") + ";'>" + parseInt(a*25*0.95-5300) + "</span>골드만큼 손익 발생</p>";
+		result.innerHTML += "<p>(혼돌 500에 구매 시) 첫 질서 3스택에서 남은연성비용 무료 못 뽑을시 바로 분해하면 <span style='color: " + (a*13*0.95-3464 > 0 ? "blue" : "red") + ";'>" + parseInt(a*13*0.95-3464) + "</span>골드만큼 손익 발생</p>";
+
+		result.innerHTML += "<p>(혼돌 1000에 구매 시) 엘릭서 1개 기준 첫 질서 3스택에서 남은연성비용 무료 뽑으면= <span style='color: " + (a*25*0.95-6970 > 0 ? "blue" : "red") + ";'>" + parseInt(a*25*0.95-6970) + "</span>골드만큼 손익 발생</p>";
+		}
+	</script>
+	</div>
+
+
+</body>
+</html>
